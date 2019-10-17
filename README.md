@@ -44,7 +44,7 @@ lucasam$ cd .aws-sam/build/
 
 lucasam$ du -hs *
  43M    FunctionOne
- 86M    FunctionTwo               // SAM CODEBASE, DOUBLE THE SIZE
+ 86M    FunctionTwo               // SAME CODEBASE, DOUBLE THE SIZE
 4.0K    template.yaml
 
 lucasam$ cd FunctionTwo/
