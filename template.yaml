@@ -1,0 +1,18 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Build issue investigation
+Resources:
+  FunctionOne:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: .
+      Handler: lib/functionOne.handler
+      Runtime: nodejs10.x
+      MemorySize: 128
+  FunctionTwo:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: .
+      Handler: lib/functionTwo.handler
+      Runtime: nodejs10.x
+      MemorySize: 128

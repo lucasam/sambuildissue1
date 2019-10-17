@@ -1,0 +1,16 @@
+{
+    "name": "build-issue",
+    "version": "0.0.1",
+    "description": "Build issue investigation",
+    "engines": {
+      "node": ">=10.0.0",
+      "npm": ">=6.0.0"
+    },
+    "dependencies": {
+      "aws-sdk": "2.520.0"
+    },
+    "devDependencies": {
+      "mocha": "^6.2.0"
+    }
+  }
+  
