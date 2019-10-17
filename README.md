@@ -1,6 +1,6 @@
 # Issue description:
 
-This is sample code to support a issue report to SAM project https://github.com/awslabs/aws-sam-cli/pull/1180
+This is sample code to support a issue report to SAM project https://github.com/awslabs/aws-sam-cli/issues/1469
 
 
 ## Scenario:
