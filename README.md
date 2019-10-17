@@ -12,19 +12,62 @@ This is sample code to support a issue report to SAM project https://github.com/
 Altough `sam build` completes sucessfully
 
 ```bash
-lucasam$ sam build
+lucasam$ sam build --debug
+Using SAM Template at /Users/lucasam/Documents/src/sambuildissue1/.aws-sam/build/FunctionTwo/template.yaml
+Telemetry endpoint configured to be https://aws-serverless-tools-telemetry.us-west-2.amazonaws.com/metrics
+'build' command is called
+No Parameters detected in the template
+2 resources found in the template
+Found Serverless function with name='FunctionOne' and CodeUri='.'
+Found Serverless function with name='FunctionTwo' and CodeUri='.'
 Building resource 'FunctionOne'
+Loading workflow module 'aws_lambda_builders.workflows'
+Registering workflow 'PythonPipBuilder' with capability 'Capability(language='python', dependency_manager='pip', application_framework=None)'
+Registering workflow 'NodejsNpmBuilder' with capability 'Capability(language='nodejs', dependency_manager='npm', application_framework=None)'
+Registering workflow 'RubyBundlerBuilder' with capability 'Capability(language='ruby', dependency_manager='bundler', application_framework=None)'
+Registering workflow 'GoDepBuilder' with capability 'Capability(language='go', dependency_manager='dep', application_framework=None)'
+Registering workflow 'GoModulesBuilder' with capability 'Capability(language='go', dependency_manager='modules', application_framework=None)'
+Registering workflow 'JavaGradleWorkflow' with capability 'Capability(language='java', dependency_manager='gradle', application_framework=None)'
+Registering workflow 'JavaMavenWorkflow' with capability 'Capability(language='java', dependency_manager='maven', application_framework=None)'
+Registering workflow 'DotnetCliPackageBuilder' with capability 'Capability(language='dotnet', dependency_manager='cli-package', application_framework=None)'
+Found workflow 'NodejsNpmBuilder' to support capabilities 'Capability(language='nodejs', dependency_manager='npm', application_framework=None)'
+Running workflow 'NodejsNpmBuilder'
 Running NodejsNpmBuilder:NpmPack
+NODEJS packaging file:/Users/lucasam/Documents/src/sambuildissue1/.aws-sam/build/FunctionTwo to /var/folders/sj/60s2bzdn7c52vwbq64d8tr9d64r349/T/tmph7xegid2
+executing NPM: ['npm', 'pack', '-q', 'file:/Users/lucasam/Documents/src/sambuildissue1/.aws-sam/build/FunctionTwo']
+NODEJS packed to build-issue-0.0.1.tgz
+NODEJS extracting to /var/folders/sj/60s2bzdn7c52vwbq64d8tr9d64r349/T/tmph7xegid2/unpacked
+NodejsNpmBuilder:NpmPack succeeded
 Running NodejsNpmBuilder:CopyNpmrc
+NodejsNpmBuilder:CopyNpmrc succeeded
 Running NodejsNpmBuilder:CopySource
+NodejsNpmBuilder:CopySource succeeded
 Running NodejsNpmBuilder:NpmInstall
+NODEJS installing in: /Users/lucasam/Documents/src/sambuildissue1/.aws-sam/build/FunctionTwo/.aws-sam/build/FunctionOne
+executing NPM: ['npm', 'install', '-q', '--no-audit', '--no-save', '--production']
+NodejsNpmBuilder:NpmInstall succeeded
 Running NodejsNpmBuilder:CleanUpNpmrc
+NodejsNpmBuilder:CleanUpNpmrc succeeded
 Building resource 'FunctionTwo'
+Loading workflow module 'aws_lambda_builders.workflows'
+Found workflow 'NodejsNpmBuilder' to support capabilities 'Capability(language='nodejs', dependency_manager='npm', application_framework=None)'
+Running workflow 'NodejsNpmBuilder'
 Running NodejsNpmBuilder:NpmPack
+NODEJS packaging file:/Users/lucasam/Documents/src/sambuildissue1/.aws-sam/build/FunctionTwo to /var/folders/sj/60s2bzdn7c52vwbq64d8tr9d64r349/T/tmpzvnf85j5
+executing NPM: ['npm', 'pack', '-q', 'file:/Users/lucasam/Documents/src/sambuildissue1/.aws-sam/build/FunctionTwo']
+NODEJS packed to build-issue-0.0.1.tgz
+NODEJS extracting to /var/folders/sj/60s2bzdn7c52vwbq64d8tr9d64r349/T/tmpzvnf85j5/unpacked
+NodejsNpmBuilder:NpmPack succeeded
 Running NodejsNpmBuilder:CopyNpmrc
+NodejsNpmBuilder:CopyNpmrc succeeded
 Running NodejsNpmBuilder:CopySource
+NodejsNpmBuilder:CopySource succeeded
 Running NodejsNpmBuilder:NpmInstall
+NODEJS installing in: /Users/lucasam/Documents/src/sambuildissue1/.aws-sam/build/FunctionTwo/.aws-sam/build/FunctionTwo
+executing NPM: ['npm', 'install', '-q', '--no-audit', '--no-save', '--production']
+NodejsNpmBuilder:NpmInstall succeeded
 Running NodejsNpmBuilder:CleanUpNpmrc
+NodejsNpmBuilder:CleanUpNpmrc succeeded
 
 Build Succeeded
 
@@ -35,6 +78,9 @@ Commands you can use next
 =========================
 [*] Invoke Function: sam local invoke
 [*] Package: sam package --s3-bucket <yourbucket>
+    
+Sending Telemetry: {'metrics': [{'commandRun': {'awsProfileProvided': False, 'debugFlagProvided': True, 'region': '', 'commandName': 'sam build', 'duration': 10815, 'exitReason': 'success', 'exitCode': 0, 'requestId': '794b5afe-5db2-4c2e-94f1-46c908e8a0ad', 'installationId': '893c5aa8-d107-4b3b-8f82-e7cb5c9ce2fe', 'sessionId': 'bb97b105-48f6-4dde-92ac-4b421ec6aca1', 'executionEnvironment': 'CLI', 'pyversion': '3.7.4', 'samcliVersion': '0.22.0'}}]}
+HTTPSConnectionPool(host='aws-serverless-tools-telemetry.us-west-2.amazonaws.com', port=443): Read timed out. (read timeout=0.1)
 ````
 
 When you inspect generated files the output of the first `sam build` is packaged at the second function
